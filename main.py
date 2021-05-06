@@ -31,7 +31,13 @@ while not game_over:
     car.move_cars()
 
     if player.check_collision(car.cars_collection) == "Crashed":
+        score.game_over()
+        player.hideturtle()
+        car.clear_screen()
         exit_game()
+
+        s.update()
+
     elif player.check_collision(car.cars_collection) == "Level":
         score.level_up()
         player.reset_position()
@@ -39,4 +45,4 @@ while not game_over:
 
     t.sleep(0.1)
 
-s.bye()
+s.exitonclick()

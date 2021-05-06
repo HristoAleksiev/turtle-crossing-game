@@ -6,7 +6,7 @@ class ScoreBoard(Turtle):
     def __init__(self):
         super().__init__()
 
-        self.game_level = 0
+        self.game_level = 1
         self.penup()
         self.hideturtle()
         self.color("black")
@@ -46,4 +46,13 @@ class ScoreBoard(Turtle):
         self.draw_finish_line()
 
     def game_over(self):
+        self.clear()
+        self.sety(0)
+        self.setx(0)
+
+        self.write(arg="Game Over!", align="center", font=("Arial", 20, "normal"))
+
+        self.sety(-20)
+        self.write(arg=f"You have reached level: {self.game_level}", align="center",
+                   font=("Arial", 20, "normal"))
         return

@@ -35,3 +35,7 @@ class CarSpawner:
     def increase_speed(self):
         for car in self.cars_collection:
             car.accelerate()
+
+    def clear_screen(self):
+        for car in self.cars_collection:
+            car.hideturtle()
