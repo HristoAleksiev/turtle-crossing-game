@@ -10,12 +10,15 @@ class Player(Turtle):
         self.shape("turtle")
         self.shapesize(0.8)
         self.setheading(90)
-        self.sety(-285)
+        self.sety(-281)
 
     def move(self):
         self.forward(20)
 
     def check_collision(self, cars):
         for car in cars:
-            if round(self.ycor() + 10 == car.ycor()) and round(self.xcor() + 10 == car.xcor() - 15):
+            print(self.position())
+            print(car.position())
+
+            if self.distance(car) < 19:
                 return True
