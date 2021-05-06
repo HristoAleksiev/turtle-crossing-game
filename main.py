@@ -1,7 +1,7 @@
 from turtle import Screen
 from player import Player
 from score import ScoreBoard
-from cars import CarSpawner
+from cars_spawner import CarSpawner
 import time as t
 
 s = Screen()
@@ -30,8 +30,12 @@ while not game_over:
     car.create_car()
     car.move_cars()
 
-    if player.check_collision(car.cars_collection):
+    if player.check_collision(car.cars_collection) == "Crashed":
         exit_game()
+    elif player.check_collision(car.cars_collection) == "Level":
+        score.level_up()
+        player.reset_position()
+        car.increase_speed()
 
     t.sleep(0.1)
 

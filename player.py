@@ -17,8 +17,11 @@ class Player(Turtle):
 
     def check_collision(self, cars):
         for car in cars:
-            print(self.position())
-            print(car.position())
-
             if self.distance(car) < 19:
-                return True
+                return "Crashed"
+
+        if self.ycor() >= 220:
+            return "Level"
+
+    def reset_position(self):
+        self.sety(-281)

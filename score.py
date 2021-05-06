@@ -10,12 +10,18 @@ class ScoreBoard(Turtle):
         self.penup()
         self.hideturtle()
         self.color("black")
+
+        self.display_level()
+        self.draw_finish_line()
+
+    def display_level(self):
         self.sety(265)
         self.setx(-285)
 
         self.write(arg=f"Level:  {self.game_level}", font=("Arial", 20, "normal"))
 
-        # Draws a finish line in the weirdest wy I could think of:
+    def draw_finish_line(self):
+        # Draws a finish line in the weirdest way I could think of:
         self.setx(-300)
         self.sety(260)
         self.setheading(0)
@@ -35,3 +41,9 @@ class ScoreBoard(Turtle):
 
     def level_up(self):
         self.game_level += 1
+        self.clear()
+        self.display_level()
+        self.draw_finish_line()
+
+    def game_over(self):
+        return
